@@ -1,0 +1,490 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    border-radius: 32px !important;
+    height: 100%;
+    width: 170px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    /* background-color: #111; */
+    overflow-x: hidden;
+    transition: 0.5s;
+    /* padding-top: 60px; */
+    background-color: lightblue; 
+    margin: 14px; 
+    border-radius: 10px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .sidebar a {
+      font-size: 1.3vw;
+      list-style-type: none;
+      /* padding: 15px 0; */
+      cursor: pointer;
+      text-align: left;
+      font-weight: 600;
+      color: #142b38;
+      display: flex;
+      align-items: center;
+      overflow-x: hidden;
+      white-space: nowrap;
+      transition: 0.3s;
+      text-decoration: none;
+      width: max-content;
+      justify-content: flex-start;
+      gap: 17px;
+      margin-left: 10px;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size:  2.5625vw;
+    cursor: pointer;
+    background-color: lightblue; 
+    color: #142B38;
+    padding: 10px 15px;
+    border: none;
+    /* margin-left: 15px; */
+  }
+  
+  #main {
+    transition: margin-left .5s;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;;}
+    .sidebar a {font-size: 18px;}
+  }
+  
+  @media screen and (max-width: 500px) {
+      .sidebar{ width: 85px !important}
+  
+      .sidebar > img {
+        right: 0 !important;
+      }
+  }
+  .round {
+              background: #b4b4b4;
+              border-radius: 60%;
+              width: 6.25vw;
+              height:  6.25vw;
+              min-height: 35px;
+              min-width: 35px;
+  
+              /* margin-bottom: 70px; */
+              /* margin: 10px 20px 75px 10px; */
+            }
+  
+  .user{
+      display: none;
+  }
+  
+  
+  .list{
+              padding-left: 10%;
+              cursor: pointer; /* Add cursor pointer to the list item */
+            }
+  
+            .list > li{
+              font-size: 1.3vw;
+              list-style-type: none;
+              padding: 15px 0;
+              cursor: pointer;
+              text-align: left;
+              font-weight: 600;
+              color:  #142b38;
+              display: flex;
+      overflow-x: hidden;
+      white-space: nowrap;
+      align-items: flex-end
+            }
+  
+            .list > li > .icon{
+              fill:  #142b38;
+              margin-bottom: -4px;
+              cursor: pointer;
+              padding: 0 10px;
+              width: 1.9vw;
+              height: 1.9vw;
+            }
+            .list > li:hover {
+              color:  rgba(239, 99, 88, 1);
+              .icon{
+              fill:  #EF9453;                
+              }
+  
+            }
+  
+            .pencil{
+  
+              fill:  #286f8c;             
+              margin-bottom: -41px;
+              cursor: pointer;
+              padding: 0 10px;
+              width: 1.9vw;
+              height: 1.9vw;
+              min-width: 20px;
+      min-height: 16px;
+            }
+  
+            .pencil:active{
+              fill:  #EF9453; 
+            }
+  
+            .plus{
+              fill:  black;             
+              /* margin-bottom: -4px; */
+              cursor: pointer;
+              /* padding: 0 10px; */
+            }
+  
+            .plus:active{
+              fill: #EF9453; 
+            }
+  
+            .divider {
+              border-style: solid;
+              border-color: #292d32;
+              border-width: 2px 0 0 0;
+              width: -webkit-fill-available;
+              height: 0px;
+            }
+  
+            .icon{
+              min-width: 15px !important;
+              min-height: 15px !important;
+              width: 3.3vw !important;
+              height: 3.3vw !important;
+            }
+  
+            .user2 ,.user3{
+              display: none;
+            }
+  
+            .openbtn:active{
+              .user2 , .user3{
+                  display: block;
+              }
+            }
+  
+            .user2:hover , .user3:hover , .user4:hover , .user5:hover , .user6:hover , .user7:hover , .user8:hover , .user9:hover , .user10:hover , .user11:hover , .user12:hover , .user13:hover{
+              color: #EF9453;
+            }
+  * {
+  
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-spacing: 0;
+      text-decoration: none;
+      
+      }
+      
+      
+      :root{
+          --main-padding:10px;
+      }
+      
+      
+      body {
+          margin: 0;
+          /* background-color:#979797; */
+          font-family:Arial, Helvetica, sans-serif;
+      }    
+      
+      
+      
+      
+      img{
+          border: 0;
+      }
+      
+      a{
+          text-decoration: none;
+      }
+      
+      .container {
+              margin: 0 auto;
+              height: 100vh;
+              /* background-color: #c7c7c7; */
+              font-size: 50%;
+              color: #1E1E1E;
+              text-align: center;
+              /* width: 100%;  */
+              /* max-width: 800px;  */
+              /* padding: 20px 30px; */
+          
+              display: grid;
+      
+          grid-template-columns: 0.5fr 2fr;
+              grid-template-rows:  7fr
+               ;
+          
+              grid-template-areas:
+  
+              "content1 content2";
+          }
+      
+          
+          .content1{
+              grid-area: content1;
+              display: flex;
+              /* margin-top: 168px; */
+              flex-direction: column;
+              align-items: center;
+              line-height: 22px;
+              background-color:white;
+              /* border-radius: 9px; */
+              min-width: 97px;
+  
+          }
+      
+          .hr{
+              width: -webkit-fill-available;
+              background-color: #1E1E1E;
+              height: 0.9px;
+              position: absolute;
+              top: 148px;
+          }
+  
+            .main-round{
+              /* background: #b4b4b4; */
+              border-radius: 50%;
+              width: 9vw;
+              height: 9vw;
+              /* margin: 20px; */
+              margin-bottom: 20px;
+            }
+  
+            .list{
+              padding-left: 10%;
+            }
+  
+            .list > li{
+              font-size: 1.3vw;
+              list-style-type: none;
+              padding: 15px 0;
+              cursor: pointer;
+              text-align: left;
+              font-weight: 600;
+              color:  #142b38;
+            }
+  
+            .list > li > .icon{
+              fill:  #142b38;
+              margin-bottom: -4px;
+              cursor: pointer;
+              padding: 0 10px;
+              width: 1.9vw;
+              height: 1.9vw;
+            }
+            .list > li:active {
+              color:  rgba(239, 99, 88, 1);
+              .icon{
+              fill:  #286f8c;                
+              }
+  
+            }
+  
+            .pencil{
+  
+              fill:  #286f8c;             
+              margin-bottom: -41px;
+              cursor: pointer;
+              padding: 0 10px;
+              width: 1.9vw;
+              height: 1.9vw;
+            }
+  
+            .pencil:active{
+              fill:  #286f8c; 
+            }
+
+            
+
+  
+
+  /* Full-width input fields */
+input[type=text], input[type=password] ,  input[type=date] {
+/* width: -webkit-fill-available; */
+padding: 15px;
+margin: 5px 6px 22px 0;
+display: inline;
+border: none;
+background: #f1f1f1;
+border-radius: 8px;
+/* border-style: solid; */
+/* border-color: #23627b; */
+border-width: 2px;
+width: 40%;
+box-shadow: #286f8c6b 0px 8px 24px;
+border-radius: 8px;
+border-style: solid;
+border-color: #4aaac6;
+border-width: 2px;
+}
+
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus {
+background-color: #ddd;
+outline: none;
+}
+
+
+button:hover {
+opacity:1;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+padding: 14px 20px;
+background-color: #f44336;
+}
+
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn, .signupbtn {
+/* float: left; */
+width: 40%;
+margin: 8px 4px;
+}
+
+
+.cancelbtn{
+background-color: #f1f1f1;
+color: #286F8C;
+padding: 14px 20px;
+/* margin: 8px 0; */
+border: none;
+cursor: pointer;
+/* width: 100%; */
+opacity: 0.9;
+border-radius: 8px;
+border-style: solid;
+border-color: #286F8C;
+border-width: 2px;
+}
+
+
+.signupbtn{
+background-color: #286F8C;
+color: white;
+padding: 14px 20px;
+/* margin: 8px 0; */
+border: none;
+cursor: pointer;
+/* width: 100%; */
+opacity: 0.9;
+border-radius: 8px;
+border-style: solid;
+/* border-color: var(--black, #000000); */
+border-width: 2px;
+}
+
+
+/* Add padding to container elements */
+.container2 {
+padding: 0 30px 30px 30px;
+border-radius: 164px;
+}
+
+
+form{
+border-radius: 77px;
+}
+
+
+/* The Modal (background) */
+.modal {
+
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+
+padding-top: 50px;
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+background-color: #fefefe;
+margin: 0% auto 1% auto; /* 5% from the top, 15% from the bottom and centered */
+
+width: 70%; /* Could be more or less, depending on screen size */
+}
+
+
+
+
+
+
+.close:hover,
+.close:focus {
+color: #f44336;
+cursor: pointer;
+}
+
+
+/* Clear floats */
+.clearfix::after {
+content: "";
+clear: both;
+display: table;
+
+}
+
+.clearfi{
+    margin-left: 38px;
+
+}
+
+.links > li > button > svg{
+min-width: 19.5px;
+min-height: 18.66px;
+}
+
+.input{
+width: 100% !important;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 970px) {
+.input {
+width: 50%;
+}
+.cancelbtn, .signupbtn {
+    width: 78%;
+    }
+}
+
+.content2{
+    grid-area: content2;
+    background-color: white;
+    padding-top: 50px;
+min-width: 300px;
+}

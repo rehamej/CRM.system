@@ -1,0 +1,124 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup2.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="content1">
+            <div style="width: 10vw; height: 89px; background-color: white;position: absolute; left: 30px; top: 30px; border: 1px; border-color: black; border-style: double;"></div>
+        </div>
+        <div class="content2">
+
+        <div style="display: inline-flex; align-items: center;">
+
+        <div class="first-half">
+            <p class="form-title" style=" text-align: left;">
+            <a href="#"><img src="https://i.ibb.co/TWkszJP/image.png" alt="" width="20px"></a>
+                Sign Up <br>
+            <span style="color: #9CA3AF;font-size: 0.8vw;font-weight: 100;padding-left: 20px;">create your account</span>
+            </p>  
+
+        <!-- <form class="form" id="form"> -->
+        <form id="registrationForm">
+            <div class="input-container">
+                <input placeholder="FirstName" type="text" id="FirstName" >    
+                <input placeholder="Username" type="text" id="Username">
+                <input placeholder="Nationality" type="text" id="Nationality">
+                <input placeholder="Email" type="email" id="email">
+                <input placeholder="password" type="password" id="password" required>
+                <input placeholder="LastName" type="text" id="LastName">
+                <input placeholder="Date" type="date" id="Date">
+                <input placeholder="City" type="text" id="City">
+                <input placeholder="PhoneNumber" type="text" id="PhoneNumber">
+                <input placeholder="ConfirmPassword" type="password" id="ConfirmPassword" required>
+            </div>
+
+            <p style="color: #9CA3AF;font-size: 0.7vw;font-weight: 100;padding: 10px;">By continuing , you agree to the <a href="#" style="color: black; font-weight: 600;"> Privacy Policy </a> & <a href="#" style="color: black; font-weight: 600;">Terms of use</a></p>
+
+            <button  class="submit" id="submit" type="submit" style="width: auto;   padding: 8px 16px ;  width: 395px;
+            height: 59px;background-color: #000; cursor: pointer;color: aliceblue;">Continue</button>
+
+            <p class="signup-link"> have an account? <a href="">log in now</a></p>
+            <div id="message" style="font-size: 1.3vw;padding: 8px 16px;text-align: center;gap: 8px;"></div>  
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+<!-- <script type="module" src="JS/SignUp.js"></script> -->
+
+
+<script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-database.js";
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB7j2HFNE4pU13o9Y0pCgCEtAMvm-2dqzc",
+  authDomain: "hilinky-test.firebaseapp.com",
+  databaseURL: "https://hilinky-test-default-rtdb.firebaseio.com",
+  projectId: "hilinky-test",
+  storageBucket: "hilinky-test.appspot.com",
+  messagingSenderId: "130850188106",
+  appId: "1:130850188106:web:c94f56d874b9ca81c0efb3",
+  measurementId: "G-33N6M2M5S9"
+};
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const Auth = getAuth();
+    const database = getDatabase();
+
+    document.getElementById("registrationForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var FirstName = document.getElementById('FirstName').value;
+        var Username = document.getElementById('Username').value;
+        var Nationality = document.getElementById('Nationality').value;
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+        var LastName = document.getElementById('LastName').value;
+        var Date = document.getElementById('Date').value;
+        var City = document.getElementById('City').value;
+        var PhoneNumber = document.getElementById('PhoneNumber').value;
+        var ConfirmPassword = document.getElementById('ConfirmPassword').value;
+
+        // Create user with email and password
+        createUserWithEmailAndPassword(Auth, email, password)
+            .then((userCredential) => {
+                // User created successfully
+                const user = userCredential.user;
+
+                // Save additional user data to Firebase Realtime Database
+                const userRef = ref(database, "users/" + user.uid);
+                set(userRef, {
+                    FirstName: FirstName,
+                    Username: Username,
+                    Nationality: Nationality,
+                    email: email,
+                    password: password,
+                    LastName: LastName,
+                    Date: Date,
+                    City: City,
+                    PhoneNumber: PhoneNumber,
+                    ConfirmPassword: ConfirmPassword,
+                });
+
+                alert("Registration successful!");
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    })
+</script>
+
+ 
+</html>
